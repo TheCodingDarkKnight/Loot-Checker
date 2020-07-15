@@ -8,7 +8,6 @@ export class Wallet extends Component {
         balance: 0
     }
     render() {
-        console.log(this.props)
         return (<div>
             <h3 className="balance">Wallet balance: {this.props.balance}</h3>
             <br />
