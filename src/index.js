@@ -1,15 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
-import { createStore } from "redux";
-import { combineReducers } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
 import App from "./components/App"
-import balance from "./reducers/balance";
+import rootReducer from "./reducers";
 
-const store = createStore(combineReducers({ balance }))
+import './index.css'
+
 render(
-    <Provider store={store}>
+    <Provider store={createStore(rootReducer, applyMiddleware(thunk))}>
         <App />
     </Provider>,
     document.getElementById("root"))
